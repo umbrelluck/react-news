@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewsContent = ({ title, src, alt, url, content, description }) => (
     <div className="NewsContent">
-        <img alt={title} src={src}></img>
+        <img alt={alt} src={src}></img>
         <div className="title">
             <h3>{title}</h3>
             <p>{description}</p>

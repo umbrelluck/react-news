@@ -1,10 +1,21 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const NewsEntry = (props) => (
-    <div className="NewsEntry_m">
-        <img alt={props.alt} src={props.src}></img>
-        <p>{props.title}</p>
-    </div>
-);
+export default class NewsEntry extends React.PureComponent {
 
-export default NewsEntry;
+    clicked =()=>{
+        console.log("here is zopa");
+    };
+
+    render() {
+        return (
+            <NavLink className="nav" exact to="/content">
+                <div className="NewsEntry_m" onClick={this.clicked}>
+                    <img alt={this.props.alt} src={this.props.src}></img>
+                    <p>{this.props.title}</p>
+                </div>
+            </NavLink>
+        )
+    }
+
+}

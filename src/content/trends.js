@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsEntry from './news_entry'
+import {NavLink} from 'react-router-dom'
 
 export default class Trends extends React.Component {
     constructor(props) {

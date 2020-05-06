@@ -221,6 +221,7 @@
     position: absolute;
     top:3rem;
     left:25rem;
+    width:50%;
 }
 
 .NewsContent img{
@@ -238,6 +239,10 @@
     left: 7rem;
     width:75%;
 
+}
+
+.nav{
+    text-decoration: none;
 }
 
 footer {
