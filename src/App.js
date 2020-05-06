@@ -7,7 +7,7 @@ import Trends from './content/trends';
 import Header from './content/header';
 import Footer from './content/footer'
 
-var page = { "main": false };
+var page = { "main": true };
 
 function App() {
   return (
