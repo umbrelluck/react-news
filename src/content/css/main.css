@@ -74,7 +74,7 @@
 .search p {
     z-index: 1;
     position: absolute;
-    width: 165.7px;
+    width: 165px;
     height: 41px;
     left: 10%;
     top: -7%;
@@ -92,8 +92,8 @@
 
 .news_m {
     position: absolute;
-    width: 89.5%;
-    min-height: 75.5%;
+    width: 90%;
+    min-height: 75%;
     left: 5%;
     top: 14%;
 

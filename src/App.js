@@ -19,6 +19,7 @@ function App() {
           <Route exact path="/" render={(props) => (
             <News url={props.match.url} />
           )} />
+          {/* <Route exact path='/' component={{"<News url={props.match.url}/>"}}> </Route> */}
           <Route exact path='/search' render={(props) => (
             <div>
               <News url={props.match.url} />
