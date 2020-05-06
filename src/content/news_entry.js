@@ -11,11 +11,7 @@ export default class NewsEntry extends React.PureComponent {
     getId = () => {
         return this.id
     };
-
-    // clickHandle = () => {
-    //     this.props.onClicked(this.getId());
-    // }
-
+    
     render() {
         return (
             <NavLink className="nav" exact to="/content">

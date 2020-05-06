@@ -1,8 +1,6 @@
 import React from 'react'
 import NewsEntry from './news_entry'
 
-// var gl_index = 0;
-
 export default class Trends extends React.Component {
     constructor(props) {
         super();
@@ -56,23 +54,8 @@ export default class Trends extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     console.log("mounted in trends");
-    //     console.log(gl_index);
-    //     this.setState((event) => ({ index: gl_index }));
-    // }
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     console.log(this.state.index,'--->',nextState.index);
-    //     return this.state.index !== nextState.index;
-    // }
-
     clicked = (id) => {
         this.props.handleClick(this.state.news[id-1]);
-        // console.log(id);
-        // this.setState((event) => ({ index: id-1 }));
-        // console.log("changed to", this.state.index);
-        // this.render();
     }
 
     render() {
