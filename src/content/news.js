@@ -3,7 +3,7 @@ import NewsEntry from './news_entry'
 import PrevNextButton from './prev_next'
 import NewsContent from './news_content'
 
-import { Router } from 'react-router-dom'
+import { Router, NavLink } from 'react-router-dom'
 
 export default class News extends React.Component {
     constructor(props) {
@@ -62,7 +62,9 @@ export default class News extends React.Component {
         return (
             (!flag_news_content) ? <div className={name}>
                 {this.state.news.map((entry, id) => (
+                    <NavLink exact to="/search">
                     <NewsEntry key={id} src={entry.src} alt={entry.alt} title={entry.title} />
+                    </NavLink>
                 ))}
                 <div className="buttons">
                     <PrevNextButton text={"Last"} />
@@ -70,7 +72,9 @@ export default class News extends React.Component {
                 </div>
             </div> :
                 <div className={name}>
+                    <NavLink exact to="/content">
                     <NewsContent src={news.src} alt={news.alt} title={news.title} description={news.description} url={news.url} content={news.content} />
+                    </NavLink>
                 </div>
         )
     }
