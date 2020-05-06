@@ -1,14 +1,12 @@
 import React from 'react'
 import NewsEntry from './news_entry'
 import PrevNextButton from './prev_next'
-import NewsContent from './news_content'
 
-var gl_index=0
+// var gl_index=0
 export default class News extends React.Component {
-    constructor(props) {
+    constructor() {
         super();
         this.state = {
-            index: 0,
             news: [{
                 id: 1,
                 src: "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5eb10238cb95f20007db3cd6%2F0x0.jpg",
@@ -58,28 +56,28 @@ export default class News extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log("mounted in news");
-        // console.log(gl_index);
-        this.setState((event) => ({ index: gl_index }));
-    }
+    // componentDidMount() {
+    //     console.log("mounted in news");
+    //     // console.log(gl_index);
+    //     this.setState((event) => ({ index: gl_index }));
+    // }
 
     clicked = (id) => {
+        this.props.handleClick(this.state.news[id-1]);
         // console.log(id);
-        gl_index = id-1;
+        // gl_index = id-1;
         // this.setState((state) => ({ index: id, news: state.news }));
         // console.log(gl_index);
         // console.log(this.state);
     }
 
     render() {
-        var name = (this.props.url === "/") ? 'news_m' : 'news_s';
-        var flag_news_content = (this.props.url === "/content") ? true : false;
-        var news = this.state.news[this.state.index];
+        // var name = (this.props.url === "/") ? 'news_m' : 'news_s';
+        // var news = this.state.news[this.state.index];
         // console.log(this.props.url);
         // console.log(this.state);
         return (
-            (!flag_news_content) ? <div className={name}>
+            <div className={'news_m'}>
                 {this.state.news.map((entry, id) => (
                     <NewsEntry key={id} id={entry.id} src={entry.src} alt={entry.alt} title={entry.title} onClicked={this.clicked} />
                 ))}
@@ -87,10 +85,7 @@ export default class News extends React.Component {
                     <PrevNextButton text={"Last"} />
                     <PrevNextButton text={"Next"} />
                 </div>
-            </div> :
-                <div className={name}>
-                    <NewsContent src={news.src} alt={news.alt} title={news.title} description={news.description} url={news.url} content={news.content} />
-                </div>
+            </div>
         )
     }
 }

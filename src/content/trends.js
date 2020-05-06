@@ -1,13 +1,12 @@
 import React from 'react'
 import NewsEntry from './news_entry'
 
-var gl_index = 0;
+// var gl_index = 0;
 
 export default class Trends extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            index: 0,
             news: [{
                 id: 1,
                 src: "https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5eb10238cb95f20007db3cd6%2F0x0.jpg",
@@ -63,15 +62,16 @@ export default class Trends extends React.Component {
     //     this.setState((event) => ({ index: gl_index }));
     // }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log(this.state.index,'--->',nextState.index);
-        return this.state.index !== nextState.index;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log(this.state.index,'--->',nextState.index);
+    //     return this.state.index !== nextState.index;
+    // }
 
     clicked = (id) => {
-        console.log(id);
-        this.setState((event) => ({ index: id-1 }));
-        console.log("changed to", this.state.index);
+        this.props.handleClick(this.state.news[id-1]);
+        // console.log(id);
+        // this.setState((event) => ({ index: id-1 }));
+        // console.log("changed to", this.state.index);
         // this.render();
     }
 
