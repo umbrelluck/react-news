@@ -35,7 +35,8 @@ export default class Trends extends React.Component {
     }
     render() {
         return (
-            (!this.props.page['main']) && <div className="trends">
+            //(!this.props.page['main']) && 
+            <div className="trends">
                 <p>Trending</p>
                 {this.state.news.map((entry, id) => (
                     <NewsEntry key={id} src={entry.src} alt={entry.src} text={entry.text} />

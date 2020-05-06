@@ -7,16 +7,35 @@ import Trends from './content/trends';
 import Header from './content/header';
 import Footer from './content/footer'
 
-var page = { "main": false };
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// var page = { "main": false };
 
 function App() {
   return (
-    <div className="container">
-      <Header></Header>
-      <Trends page={page}></Trends>
-      <News page={page} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Header></Header>
+        <Switch>
+          <Route exact path="/" render={(props) => (
+            <News url={props.match.url} />
+          )} />
+          <Route exact path='/search' render={(props) => (
+            <div>
+              <News url={props.match.url} />
+              <Trends />
+            </div>
+          )} />
+          <Route exact path='/content' render={(props) => (
+            <div>
+              <News url={props.match.url} />
+              <Trends />
+            </div>
+          )} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
