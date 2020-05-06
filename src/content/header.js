@@ -11,7 +11,6 @@ export default class Header extends React.Component {
                 <div className="search">
                     <p>Search |</p>
                     <input placeholder="query"></input>
-                    <button></button>
                 </div>
             </div>
         )

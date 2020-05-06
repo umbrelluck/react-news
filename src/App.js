@@ -9,7 +9,6 @@ import Footer from './content/footer'
 
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// var page = { "main": false };
 
 function App() {
   return (
