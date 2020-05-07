@@ -56,12 +56,12 @@ export default class News extends React.Component {
     }
 
     clicked = (id) => {
-        this.props.handleClick(this.state.news[id-1]);
+        this.props.handleClick(this.state.news[id - 1]);
     }
 
     render() {
         return (
-            <div className={'news_m'}>
+            <div className={this.props.url === '/' ? 'news_m' : 'news_s'}>
                 {this.state.news.map((entry, id) => (
                     <NewsEntry key={id} id={entry.id} src={entry.src} alt={entry.alt} title={entry.title} onClicked={this.clicked} />
                 ))}

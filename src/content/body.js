@@ -34,10 +34,10 @@ export default class Body extends React.Component {
                 <Header handleInput={this.handleInput} />
                 <Switch>
                     <Route exact path='/' render={() =>
-                        <News handleClick={this.handleClick} />} />
+                        <News url={'/'} handleClick={this.handleClick} />} />
                     <Route exact path='/search' render={() => (
                         <div>
-                            <News handleClick={this.handleClick} />}/>
+                            <News url={"/search"} handleClick={this.handleClick} />}/>
                             <Trends handleClick={this.handleClick} />}/>
                         </div>
                     )} />
