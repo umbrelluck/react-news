@@ -3,7 +3,7 @@ import NewsEntry from './news_entry'
 import PrevNextButton from './prev_next'
 
 export default class News extends React.Component {
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             news: [{

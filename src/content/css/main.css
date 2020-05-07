@@ -219,26 +219,47 @@
 
 .NewsContent .title{
     position: absolute;
-    top:3rem;
+    top:1rem;
     left:25rem;
     width:50%;
 }
 
 .NewsContent img{
-    margin-top:2rem;
+    margin-top: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
     float: left;
-    width:25%;
-    height: 25%;
+    width: 15vw;
+    height: 22vh;
+
+    background-color: #282828;
 }
 
-.NewsContent div{
-    position: absolute;
-    top:14rem;
-    left: 7rem;
-    width:75%;
+.NewsContent .text{
+    position: relative;
+    top:18rem;
+    left: -18rem;
+    width:115%;
 
+}
+.title h3{
+    font-size: 24px;
+}
+
+.title p{
+    font-size: 22px;
+}
+
+.text .content{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+
+    color: black;
 }
 
 .nav{
@@ -274,3 +295,19 @@ footer p {
 footer a {
     color: #FFFFFF;
 }
+
+.e404{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top:20%;
+    left:10%;
+
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 10rem;
+    height: fit-content;
+
+    background-color: rgb(49, 3, 3);
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.719);
+}   
