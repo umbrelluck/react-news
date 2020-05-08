@@ -21,12 +21,11 @@ class Header extends React.Component {
                 </NavLink>
                 <div className="search">
                     <p>Search |</p>
-                    {/* <NavLink to="search"> */}
                     <input placeholder="query" onKeyDown={this.handleEnter}></input>
-                    {/* </NavLink> */}
                 </div>
             </div>
         )
     }
 }
+
 export default withRouter(Header);
