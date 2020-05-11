@@ -28,16 +28,25 @@ export default class Body extends React.Component {
         console.log(text)
     };
 
+    handleNext = (e) => {
+        console.log("Next:  NYI")
+    }
+
+    handleLast = (e) => {
+        console.log("Last:  NYI")
+    }
+
+
     render() {
         return (
-            <div>   
+            <div>
                 <Header handleInput={this.handleInput} />
                 <Switch>
                     <Route exact path='/' render={() =>
-                        <News url={'/'} handleClick={this.handleClick} />} />
+                        <News url={'/'} handleClick={this.handleClick} handleNext={this.handleNext} handleLast={this.handleLast}/>} />
                     <Route exact path='/search' render={() => (
                         <div>
-                            <News url={"/search"} handleClick={this.handleClick} />}/>
+                            <News url={"/search"} handleClick={this.handleClick} handleNext={this.handleNext} handleLast={this.handleLast}/>}/>
                             <Trends handleClick={this.handleClick} />}/>
                         </div>
                     )} />
@@ -47,8 +56,8 @@ export default class Body extends React.Component {
                             <Trends handleClick={this.handleClick} />}/>
                         </div>
                     )} />
-                    <Route to ="404" component={Error404}/>
-                    <Redirect to='404'/>
+                    <Route to="404" component={Error404} />
+                    <Redirect to='404' />
                 </Switch>
             </div >
         )

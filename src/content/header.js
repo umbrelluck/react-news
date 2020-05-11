@@ -5,11 +5,8 @@ class Header extends React.Component {
 
     handleEnter = (e) => {
         if (e.key === 'Enter') {
-            let name = document.getElementsByTagName("input")[0].value;
-            document.getElementsByTagName("input")[0].value = "";
-            this.props.handleInput(name);   
+            this.props.handleInput(e.target.value);   
             this.props.history.push('/search');
-            // {<Redirect to="content"></Redirect>} 
         }
     }
 
@@ -21,9 +18,7 @@ class Header extends React.Component {
                 </NavLink>
                 <div className="search">
                     <p>Search |</p>
-                    {/* <NavLink to="search"> */}
                     <input placeholder="query" onKeyDown={this.handleEnter}></input>
-                    {/* </NavLink> */}
                 </div>
             </div>
         )

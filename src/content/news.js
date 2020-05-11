@@ -66,8 +66,8 @@ export default class News extends React.Component {
                     <NewsEntry key={id} id={entry.id} src={entry.src} alt={entry.alt} title={entry.title} onClicked={this.clicked} />
                 ))}
                 <div className="buttons">
-                    <PrevNextButton text={"Last"} />
-                    <PrevNextButton text={"Next"} />
+                    <PrevNextButton text={"Last"} clicked={this.props.handleLast}/>
+                    <PrevNextButton text={"Next"} clicked={this.props.handleNext}/>
                 </div>
             </div>
         )
