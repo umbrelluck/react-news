@@ -5,7 +5,8 @@ class Header extends React.Component {
 
     handleEnter = (e) => {
         if (e.key === 'Enter') {
-            this.props.handleInput(e.target.value);   
+            this.props.handleInput(e.target.value);
+            e.target.value='';   
             this.props.history.push('/search');
         }
     }

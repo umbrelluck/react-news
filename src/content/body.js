@@ -8,25 +8,33 @@ import Error404 from './error404'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 
-var news_entry = {
-    id: 5,
-    src: "https://dailyfintech.com/wp-content/uploads/2020/05/christiann-koepke-0jPuWm8_9wY-unsplash-1024x683.jpg",
-    alt: "Picture",
-    title: "Trading Through Turbulent Times: Opportunities For Payments’ Fintechs & Investors",
-    description: "Jessica Ellerm is a thought leader specializing in Small Business and the Gig Economy and is the CEO and Co- Founder of Zuper, a neowealth disruptor in Australia For many fintech companies and new financial technologies(hello Bitcoin), COVID - 19 is proving to …",
-    url: "https://dailyfintech.com/2020/05/06/trading-through-turbulent-times-opportunities-for-payments-fintechs-investors/",
-    content: "Jessica Ellerm is a thought leader specializing in Small Business and the Gig Economy and is the CEO and Co-Founder of Zuper, a neowealth disruptor in Australia\r\nFor many fintech companies and new financial technologies (hello Bitcoin), COVID-19 is proving to… [+2649 chars]"
-};
+var gl_text = '';
 
 export default class Body extends React.Component {
+    constructor() {
+        super();
+        this.news_entry = '';
+        this.state = {
+            query: ""
+        }
+        this.ref = React.createRef();
+    }
 
     handleClick = (n_e) => {
-        news_entry = n_e;
+        console.log(n_e)
+        this.news_entry = n_e;
+        this.render();
     }
 
     handleInput = (text) => {
         console.log(text)
+        gl_text = text;
+        console.log("global", gl_text);
+        this.setState((state) => ({
+            query: text
+        }))
     };
+
 
     handleNext = (e) => {
         console.log("Next:  NYI")
@@ -38,21 +46,22 @@ export default class Body extends React.Component {
 
 
     render() {
+        console.log("gl+state",gl_text, this.state.query);
         return (
-            <div>
+            (gl_text === this.state.query) && <div>
                 <Header handleInput={this.handleInput} />
                 <Switch>
                     <Route exact path='/' render={() =>
-                        <News url={'/'} handleClick={this.handleClick} handleNext={this.handleNext} handleLast={this.handleLast}/>} />
+                        <News url={'/'} handleClick={this.handleClick} handleNext={this.handleNext} handleLast={this.handleLast} />} />
                     <Route exact path='/search' render={() => (
                         <div>
-                            <News url={"/search"} handleClick={this.handleClick} handleNext={this.handleNext} handleLast={this.handleLast}/>}/>
+                            <News url={"/search"} ref={this.ref} handleClick={this.handleClick} handleNext={this.handleNext} query={this.state.query} handleLast={this.handleLast} />}/>
                             <Trends handleClick={this.handleClick} />}/>
                         </div>
                     )} />
                     <Route exact path='/content' render={() => (
                         <div>
-                            <Content src={news_entry.src} alt={news_entry.alt} title={news_entry.title} description={news_entry.description} url={news_entry.url} content={news_entry.content} />
+                            <Content src={this.news_entry.src} alt={this.news_entry.alt} title={this.news_entry.title} description={this.news_entry.description} url={this.news_entry.url} content={this.news_entry.content} />
                             <Trends handleClick={this.handleClick} />}/>
                         </div>
                     )} />
