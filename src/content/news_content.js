@@ -1,11 +1,18 @@
 import React from 'react'
 
-const NewsContent = (props) => (
-    // <img scr={props.src} alt=""/>
+const NewsContent = ({ title, src, alt, url, content, description }) => (
     <div className="NewsContent">
-        <img alt={props.title} src={props.src}></img>
-        <h3>{props.title}</h3>
-        <p>{props.text}</p>
+        <div>
+            <img alt={alt} src={src}></img>
+            <div className="title">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+        </div>
+        <div className="text">
+            <p className="content">{content}</p>
+            <p className="url">More can be found <a href={url}>here</a>.</p>
+        </div>
     </div>
 
 );
