@@ -46,7 +46,7 @@ export default class Body extends React.Component {
 
 
     render() {
-        console.log("gl+state",gl_text, this.state.query);
+        console.log("gl+state", gl_text, this.state.query);
         return (
             (gl_text === this.state.query) && <div>
                 <Header handleInput={this.handleInput} />

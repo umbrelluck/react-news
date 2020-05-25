@@ -14,7 +14,7 @@ export default class News extends React.Component {
             i: 0,
             news: []
         }
-
+        console.log("inside", this.url)
     }
     handleLast = () => {
         console.log("Last");
@@ -38,10 +38,11 @@ export default class News extends React.Component {
     }
 
     arrivalHandle = (url) => {
-        console.log(this.state)
-        fetch(url).then(response => (
+        var proxy = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxy + url).then(response => (
             response.json()
         )).then(body => {
+            console.log(body)
             this.setState(state => ({
                 news: body.articles.splice(state.i, state.i + 5)
             }))
@@ -61,7 +62,7 @@ export default class News extends React.Component {
                 <div className="buttons">
                     <PrevNextButton text={"Last"} clicked={this.handleLast} />
                     <PrevNextButton text={"Next"} clicked={this.handleNext} />
-                    <button onClick={() => { console.log(this.url) }}>mshjsh</button>
+                    {/* <button onClick={() => { console.log(this.url) }}>mshjsh</button> */}
                 </div>
             </div>
         )
