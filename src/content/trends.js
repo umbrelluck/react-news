@@ -12,10 +12,11 @@ export default class Trends extends React.Component {
     }
 
     arrivalHandle = () => {
+        var proxy = "https://cors-anywhere.herokuapp.com/";
         var url = 'http://newsapi.org/v2/top-headlines?' +
             'category=general&' +
             'apiKey=3377d076bfef4723bb8c61632da7bc3a';
-        fetch(url).then(response => (
+        fetch(proxy + url).then(response => (
             response.json()
         )).then(body => {
             this.setState(state => ({
@@ -29,13 +30,13 @@ export default class Trends extends React.Component {
     }
 
     render() {
-        console.log("render ",this.state.news.length);
+        console.log("render ", this.state.news.length);
         return (
             (this.state.news.length !== 0) && <div className="trends">
                 <p>Trending</p>
                 {
                     this.state.news.map((entry, id) => (
-                        <NewsEntry key={id} id={entry.id} src={entry.src} alt={entry.alt} title={entry.title} onClicked={()=>this.clicked(id)} />
+                        <NewsEntry key={id} id={entry.id} src={entry.src} alt={entry.alt} title={entry.title} onClicked={() => this.clicked(id)} />
                     ))}
             </div>
         )

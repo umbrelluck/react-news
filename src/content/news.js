@@ -2,6 +2,9 @@ import React from 'react'
 import NewsEntry from './news_entry'
 import PrevNextButton from './prev_next'
 
+import { useSelector } from 'react-redux'
+
+var oldUrl = "";
 export default class News extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +17,7 @@ export default class News extends React.Component {
             i: 0,
             news: []
         }
-
+        console.log("inside", this.url);
     }
     handleLast = () => {
         console.log("Last");
@@ -35,13 +38,17 @@ export default class News extends React.Component {
 
     componentDidMount() {
         this.arrivalHandle(this.url);
+        // var newUrl = useSelector(state => state.urlReducer);
+        // console.log('Reducer', newUrl);
     }
 
     arrivalHandle = (url) => {
-        console.log(this.state)
-        fetch(url).then(response => (
+        oldUrl = url;
+        var proxy = "https://cors-anywhere.herokuapp.com/";
+        fetch(proxy + url).then(response => (
             response.json()
         )).then(body => {
+            console.log(body)
             this.setState(state => ({
                 news: body.articles.splice(state.i, state.i + 5)
             }))
@@ -53,6 +60,9 @@ export default class News extends React.Component {
     }
 
     render() {
+        console.log("URLLLLL", this.url);
+        // if (oldUrl !== this.url)
+        // this.arrivalHandle(this.url)
         return (
             (this.state.news.length !== 0) && <div className={this.props.url === '/' ? 'news_m' : 'news_s'}>
                 {this.state.news.map((entry, id) => (

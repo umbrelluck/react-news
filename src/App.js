@@ -5,7 +5,7 @@ import './content/css/main.css'
 import Body from './content/body'
 import Footer from './content/footer'
 
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
